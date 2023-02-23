@@ -12,7 +12,7 @@ class App {
 
 class  User(val name: String, val age: Int ){
     override fun toString(): String {
-        return "User (name=$name, age=$age)"
+        return "User(name=$name, age=$age)"
     }
 }
 
@@ -23,6 +23,7 @@ class  User(val name: String, val age: Int ){
 //}
 //const (name, age) = user
 
+//Data Class
 data class  DataUser(val name: String, val age: Int) {
     fun intro(){
         println("hi its me is $name")
@@ -80,5 +81,14 @@ fun main(args: Array<String>) {
     println(capital["Jakarta"])
     println(capital.getValue("Jakarta"))
 
+    println(capital["Kuala Lumpur"])
+//  println(capital.getValue("Kuala Lumpur"))
 
+    println(capital.keys)
+    print(capital.values)
+
+    val mutableCapital = capital.toMutableMap()
+    mutableCapital.put("Kuala Lumpur", "Malaysia")
+
+    println(mutableCapital)
 }
