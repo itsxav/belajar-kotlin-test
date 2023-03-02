@@ -3,6 +3,8 @@
  */
 package com.itsxav.kotlin
 
+import com.sun.jdi.Value
+
 class App {
     val greeting: String
         get() {
@@ -10,7 +12,7 @@ class App {
         }
 }
 
-class  User(val name: String, val age: Int ){
+class  User(private val name: String, val age: Int) {
     override fun toString(): String {
         return "User(name=$name, age=$age)"
     }
@@ -39,9 +41,11 @@ fun main(args: Array<String>) {
     println(dataUser)
 
     val ( name, age ) = dataUser
-    println("Perkenalkan nama saya $name")
+    println("Perkenalkan nama saya $name umur saya $age")
 
     dataUser.intro()
+
+//<<<<>>>>//
 
     //Collections
     val numberList : List<Int> = listOf(1, 2, 3, 4, 5)
@@ -49,23 +53,46 @@ fun main(args: Array<String>) {
     println(numberList[2])
 
     //List
-    val anyList = mutableListOf(1, "A", "Kotlin", true)
+    val anyList = mutableListOf(1, 'A', "Kotlin", true)
     anyList.add(4, false)
     anyList.add(5, "Programming")
     println(anyList)
 
+
+//<<<<TEST>>>>//
+    print("\n")
+
+    val spekolDaftar = mutableListOf("12 per", "peh", 1)
+
+    println(spekolDaftar)
+
+
+    val test = mapOf(
+        "JJ" to "BB",
+        1 to 2,
+        12.1 to 12
+    )
+
+    println(test["JJ"])
+    println(test.getValue(12.1))
+
+    print("\n")
+//<<<<TEST>>>>//
+
+
     //Set
-    val integerSet = setOf(1, 2, 3 ,4, 1, 5)
+    val integerSet = setOf(1, 2, 3 ,4, 1, 5, 6 ,5)
     println(integerSet)
 
     val setA = setOf(1, 2, 3, 4)
     val setB = setOf(3, 4, 2, 1)
     println(setA == setB)
 
-    val mutableSet = mutableSetOf(1, 2 ,3 , 3, 4, 4)
+    val mutableSet = mutableSetOf(1, 2 ,3 , 5, 4, 4)
 
     mutableSet.add(6)
     println(mutableSet)
+
     mutableSet.remove(4)
     println(mutableSet)
 
@@ -85,10 +112,12 @@ fun main(args: Array<String>) {
 //  println(capital.getValue("Kuala Lumpur"))
 
     println(capital.keys)
-    print(capital.values)
+    println(capital.values)
+
+    print("\n")
 
     val mutableCapital = capital.toMutableMap()
-    mutableCapital.put("Kuala Lumpur", "Malaysia")
+    mutableCapital.put("Kuala Lumpur", "Malaysia")  //.put bisa dihilangkan
 
     println(mutableCapital)
 }
